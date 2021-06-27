@@ -1,10 +1,9 @@
 $(document).ready(function () {
 
-    var apiRoot = 'http://localhost:8080/v1/task/';
+    var apiRoot = 'https://agile-thicket-86888.herokuapp.com/v1/task/';
     var datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
     var tasksContainer = $('[data-tasks-container]');
 
-    // init
     getAllTasks();
 
     function createElement(data) {
@@ -69,8 +68,8 @@ $(document).ready(function () {
         var requestUrl = apiRoot + 'deleteTask';
 
         $.ajax({
-            url: requestUrl + '/?' + $.param({
-                taskId: taskId
+            url: requestUrl + '?' + $.param({
+                id: taskId
             }),
             method: 'DELETE',
             success: function () {
